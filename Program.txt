@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            FederationHire bookings = new FederationHire();
+            Client client1 = new Client("Lisa", "Jones", "841531A", "902145678", "Automatic");
+            Booking booking1 = bookings.bookVehicle("d", client1, 2);
+            Console.WriteLine("client1's Booking hire fee = {0}", booking1.hireCharge);
+            ArrayList vehicles = booking1.vehicles;
+            displayVehicles(vehicles);
+            /*Console.Write("vehicles allocated are: ");
+            ArrayList vehicles = booking1.vehicles;
+            for (int i = 0; i < vehicles.Count; i++)
+                Console.Write("{0}\t", ((Vehicle)vehicles[i]).registrationNumber);
+            Console.WriteLine();*/
+            Console.WriteLine();
+            Client client2 = new Client("Martha", "Hanrahan", "635252X", "234641237", "Light Rigid");
+            Booking booking2 = bookings.bookVehicle("a", client2, 1);
+            Console.WriteLine("client2's Booking hire fee = {0}", booking2.hireCharge);
+            vehicles = booking2.vehicles;
+            displayVehicles(vehicles);
+            /*Console.Write("vehicles allocated are: ");
+            vehicles = booking2.vehicles;
+            for (int i = 0; i < vehicles.Count; i++)
+                Console.Write("{0}\t", ((Vehicle)vehicles[i]).registrationNumber);
+            Console.WriteLine();*/
+            Console.ReadLine();
+        }
+        public static void displayVehicles(ArrayList vehicles)
+        {
+            Console.Write("vehicles allocated are: ");
+            
+            for (int i = 0; i < vehicles.Count; i++)
+                Console.Write("{0}\t", ((Vehicle)vehicles[i]).registrationNumber);
+            Console.WriteLine();
+        }
+    }
+}
